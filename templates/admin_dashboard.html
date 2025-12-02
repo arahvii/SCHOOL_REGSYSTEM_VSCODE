@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+
+<div class="bg-white p-6 rounded-xl shadow-2xl border-l-8 border-red-500 mb-6">
+    <h1 class="text-3xl font-bold text-red-600 mb-2"><i class="fas fa-user-cog mr-2"></i> Welcome, Administrator {{ current_user.Admin_Name }}</h1>
+    <p class="lead text-gray-600">Role: <strong>{{ current_user.Role }}</strong> | Email: <strong>{{ current_user.Email }}</strong></p>
+    <div class="mt-4 pt-4 border-t border-gray-200 text-sm text-gray-500">
+        This is the central administrative hub for system management and data oversight.
+    </div>
+</div>
+
+<div class="mt-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Total Students Card -->
+        <div class="bg-blue-600 text-white p-6 rounded-xl shadow-xl border-l-4 border-blue-300">
+            <h5 class="text-lg font-semibold mb-1">Total Students</h5>
+            <div class="flex justify-between items-center">
+                <h1 class="text-4xl font-extrabold">{{ stats.total_students }}</h1>
+                <i class="fas fa-users text-3xl opacity-70"></i>
+            </div>
+        </div>
+        
+        <!-- Total Staff Card -->
+        <div class="bg-green-600 text-white p-6 rounded-xl shadow-xl border-l-4 border-green-300">
+            <h5 class="text-lg font-semibold mb-1">Total Staff/Instructors</h5>
+            <div class="flex justify-between items-center">
+                <h1 class="text-4xl font-extrabold">{{ stats.total_staff }}</h1>
+                <i class="fas fa-user-tie text-3xl opacity-70"></i>
+            </div>
+        </div>
+        
+        <!-- Total Courses Card -->
+        <div class="bg-red-600 text-white p-6 rounded-xl shadow-xl border-l-4 border-red-300">
+            <h5 class="text-lg font-semibold mb-1">Total Courses Offered</h5>
+            <div class="flex justify-between items-center">
+                <h1 class="text-4xl font-extrabold">{{ stats.total_courses }}</h1>
+                <i class="fas fa-book-open text-3xl opacity-70"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Management Actions -->
+    <div class="mt-8">
+        <h3 class="text-2xl font-semibold text-red-600 mb-4">Administrative Actions</h3>
+        <div class="bg-white rounded-xl shadow-xl divide-y divide-gray-100">
+            <a href="#" class="flex items-center justify-between p-4 hover:bg-gray-50 transition duration-150">
+                <span class="font-medium text-gray-700"><i class="fas fa-database text-red-500 mr-3"></i> Database Health Check</span>
+                <i class="fas fa-arrow-right text-gray-400"></i>
+            </a>
+            <a href="#" class="flex items-center justify-between p-4 hover:bg-gray-50 transition duration-150">
+                <span class="font-medium text-gray-700"><i class="fas fa-users-cog text-red-500 mr-3"></i> Manage User Accounts</span>
+                <i class="fas fa-arrow-right text-gray-400"></i>
+            </a>
+            <a href="#" class="flex items-center justify-between p-4 hover:bg-gray-50 transition duration-150">
+                <span class="font-medium text-gray-700"><i class="fas fa-book-open text-red-500 mr-3"></i> Add/Edit Courses and Sections</span>
+                <i class="fas fa-arrow-right text-gray-400"></i>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

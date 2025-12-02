@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}Instructor Dashboard{% endblock %}
+{% block content %}
+
+<div class="bg-white p-6 rounded-xl shadow-2xl border-l-8 border-green-500 mb-6">
+    <h1 class="text-3xl font-bold text-green-600 mb-2"><i class="fas fa-chalkboard-teacher mr-2"></i> Hello, {{ current_user.Title }} {{ current_user.Staff_LastName }}</h1>
+    <p class="lead text-gray-600">Staff ID: <strong>{{ current_user.Staff_ID }}</strong> | Department: <strong>{{ current_user.Department }}</strong></p>
+    <div class="mt-4 pt-4 border-t border-gray-200 text-sm text-gray-500">
+        Use this portal to manage your assigned classes and student records.
+    </div>
+</div>
+
+<div class="mt-8">
+    <div class="bg-white rounded-xl shadow-xl">
+        <div class="p-4 bg-green-500 text-white rounded-t-xl">
+            <h5 class="text-xl font-semibold"><i class="fas fa-list-alt mr-2"></i> Assigned Class Sections</h5>
+        </div>
+        <div class="p-6">
+            {% if assigned_classes %}
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Section ID</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Course Name</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Meeting Time</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Enrolled Students</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        {% for section_id, course_name, meeting_time, student_count in assigned_classes %}
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ section_id }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ course_name }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ meeting_time }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                    {{ student_count }} Students
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                                <!-- Placeholder actions -->
+                                <button class="text-blue-600 hover:text-blue-900 text-sm font-medium p-1 border border-blue-600 rounded-md hover:bg-blue-50 transition"><i class="fas fa-eye"></i> Roster</button>
+                                <button class="text-yellow-600 hover:text-yellow-900 text-sm font-medium p-1 border border-yellow-600 rounded-md hover:bg-yellow-50 transition"><i class="fas fa-pen"></i> Grades</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+                <div class="p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-700 rounded-md">
+                    You are currently not assigned to teach any classes.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Select Role{% endblock %}
+
+{% block content %}
+<div class="flex flex-col items-center justify-center min-h-[calc(100vh-8rem)]">
+    <div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl w-full text-center">
+        <h1 class="text-3xl font-extrabold text-gray-900 mb-6">
+            Welcome to the Registration System
+        </h1>
+        <p class="text-lg text-gray-600 mb-10">
+            Please select your role to proceed to the login page.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Student Card -->
+            <a href="{{ url_for('student_login') }}" class="block p-6 bg-blue-50 border border-blue-200 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 cursor-pointer">
+                <i class="fas fa-user-graduate text-5xl text-blue-600 mb-3"></i>
+                <h2 class="text-xl font-bold text-blue-800 mb-2">Student</h2>
+                <p class="text-gray-600 text-sm">Access courses, schedules, and transcripts.</p>
+            </a>
+
+            <!-- Instructor/Staff Card -->
+            <a href="{{ url_for('instructor_login') }}" class="block p-6 bg-green-50 border border-green-200 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 cursor-pointer">
+                <i class="fas fa-chalkboard-teacher text-5xl text-green-600 mb-3"></i>
+                <h2 class="text-xl font-bold text-green-800 mb-2">Instructor / Staff</h2>
+                <p class="text-gray-600 text-sm">Manage class rosters, grades, and attendance.</p>
+            </a>
+
+            <!-- Admin Card -->
+            <a href="{{ url_for('admin_login') }}" class="block p-6 bg-red-50 border border-red-200 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 cursor-pointer">
+                <i class="fas fa-user-shield text-5xl text-red-600 mb-3"></i>
+                <h2 class="text-xl font-bold text-red-800 mb-2">Administrator</h2>
+                <p class="text-gray-600 text-sm">Oversee system settings, users, and global data.</p>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
