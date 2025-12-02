@@ -8,8 +8,8 @@ from .models import Student_Table, Staff_Table, Admin_Table
 
 # NOTE: Using a static path is generally not recommended in production, 
 # but fine for development.
-# DATABASE_URI = 'mysql+pymysql://root:Ladyloki%404ever@192.168.1.13:3310/regsystem'
-DATABASE_URI = 'mysql+pymysql://root:Ladyloki%404ever@127.0.0.1:3310/regsystem'
+# DATABASE_URI = 'mysql+pymysql://root:YourPassWord@localhost:3306/db_name'
+DATABASE_URI = 'mysql+pymysql://root:YourPassWord@127.0.0.1:3306/db_name'
 # --- Application Factory ---
 
 def create_app():
@@ -65,4 +65,5 @@ def load_user(user_id_string):
     elif user_type == 'admin':
         return Admin_Table.query.get(user_id)
         
+
     return None
