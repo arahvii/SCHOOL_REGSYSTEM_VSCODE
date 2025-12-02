@@ -1,0 +1,44 @@
+DEPENDENCIES: Flask
+Flask-SQLAlchemy
+Flask-Login
+Flask-WTF
+PyMySQL
+
+Step 1: make a folder to hold the GUI project
+(make a virtual environment)
+python -m venv venv (hit enter)
+
+(activate the virtual environment)
+venv\Scripts\activate
+
+(notes: run this in the powershell/cmd terminal)
+pip install Flask Flask-WTF 
+pip install Flask-SQLAlchemy PyMySQL
+
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+pip install Flask-login
+
+(notes: run this in the powershell/cmd terminal)
+pip install pymysql (hit enter)
+pip install crytography(hit enter)
+
+(notes: run this in the powershell terminal)
+$env:FLASK_ENV="development" (hit enter)
+$env:FLASK_ENV (hit enter)
+$env:FLASK_APP="run_app.py" (hit enter)
+
+
+python setup_db_users.py #cd to where the file is in the dir
+# database schema matches the Python models, allowing the script to proceed and hash the passwords.
+
+python run_app.py --- final run
+
+
+
+(IF THE CONNECTOR DOESN'T WORK)
+(terminal) pip install mysql-connector
+pip install mysql-connector-python
+pip install mysql-connector-python-rf
+pip install Flask-Login Werkzeug
