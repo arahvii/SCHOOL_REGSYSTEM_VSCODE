@@ -21,8 +21,8 @@ pip install -r requirements.txt
 pip install Flask-login
 
 (notes: run this in the powershell/cmd terminal)
-pip install pymysql (hit enter)
-pip install crytography(hit enter)
+python -m pip install pymysql (hit enter)
+python -m pip install cryptography(hit enter)
 
 (notes: run this in the cmd terminal)
 set FLASK_ENV=development
@@ -37,7 +37,8 @@ python run_app.py --- final run
 
 (IF THE CONNECTOR DOESN'T WORK)
 (terminal) pip install mysql-connector
-pip install mysql-connector-python
-pip install mysql-connector-python-rf
+python -m pip install mysql-connector-python
+python -m pip install mysql-connector-python-rf
 
 pip install Flask-Login Werkzeug
+
